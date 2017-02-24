@@ -21,7 +21,7 @@ public class PhotoRepositoryImpl implements PhotoCustomRepository {
     public List<Photo> getPhotosByAdId(long adId) {
         Session session = factory.getCurrentSession();
         //from DB_Message msg where msg.id = :searchId
-        Query q = session.createQuery("select photo from com.example.domain.Photo photo where photo.adId =:id");
+        Query q = session.createQuery("select photo from com.photomicroservice.domain.Photo photo where photo.adId =:id");
         q.setParameter("id", adId);
         List<Photo> resultList = q.list();
 
