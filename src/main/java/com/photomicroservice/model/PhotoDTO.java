@@ -1,5 +1,8 @@
 package com.photomicroservice.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by dani on 2017-02-24.
  */
@@ -8,7 +11,8 @@ public class PhotoDTO {
     private byte[] imgByte;
     private long adId;
 
-    public PhotoDTO(long id, byte[] imgByte, long adId) {
+    @JsonCreator
+    public PhotoDTO(@JsonProperty("id")long id,@JsonProperty("byte") byte[] imgByte,@JsonProperty("adId") long adId) {
         this.id = id;
         this.imgByte = imgByte;
         this.adId = adId;
