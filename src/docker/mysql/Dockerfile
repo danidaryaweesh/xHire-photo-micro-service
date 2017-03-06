@@ -1,0 +1,7 @@
+FROM mysql
+
+EXPOSE 3310
+
+ENV MYSQL_DATABASE db_mjukvaru_photomicroservice
+ENV MYSQL_TCP_PORT 3310
+ENV MYSQL_ROOT_PASSWORD my-secret-pw
