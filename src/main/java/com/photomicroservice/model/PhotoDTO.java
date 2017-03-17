@@ -12,7 +12,7 @@ public class PhotoDTO {
     private long adId;
 
     @JsonCreator
-    public PhotoDTO(@JsonProperty("id")long id,@JsonProperty("byte") byte[] imgByte,@JsonProperty("adId") long adId) {
+    public PhotoDTO(@JsonProperty("id")long id,@JsonProperty("imgByte") byte[] imgByte,@JsonProperty("adId") long adId) {
         this.id = id;
         this.imgByte = imgByte;
         this.adId = adId;

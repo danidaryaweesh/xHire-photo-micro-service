@@ -2,6 +2,7 @@ package com.photomicroservice.controller;
 
 import com.photomicroservice.domain.Photo;
 import com.photomicroservice.model.PhotoDTO;
+import com.photomicroservice.model.PhotoListingDTO;
 import com.photomicroservice.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,12 +45,16 @@ public class PhotoController {
     public ResponseEntity<List<PhotoDTO>> getImgsOfAd(@PathVariable int adId)
     {
         List<PhotoDTO> resultList = convertToPhotoDTOList(photoService.getPhotosByAdId(adId));
+
+        PhotoListingDTO photoListingDTO = new PhotoListingDTO();
+        photoListingDTO.setPhotoList(resultList);
+
         return new ResponseEntity<>(resultList, HttpStatus.OK);
     }
 
     private List<PhotoDTO> convertToPhotoDTOList(List<Photo> photoList)
     {
-        ArrayList<PhotoDTO> resultList = new ArrayList<>();
+        List<PhotoDTO> resultList = new ArrayList<>();
         for(Photo photo : photoList)
         {
             resultList.add(toPhotoDTO(photo));
